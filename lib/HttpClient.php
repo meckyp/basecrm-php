@@ -47,6 +47,23 @@ class HttpClient
   }
 
   /**
+   * Perform a POST request with parameters
+   *
+   * @param string $url Url to send the request to.
+   * @param array $params Url to send the request to.
+   * @param array $body Body params to send with the request. They are converted to json and sent in the body.
+   * @param array $options Additional request's options.
+   *  @option array 'headers' Additional headers to send with the request
+   *  @option boolean 'raw' Indicator whether to wrap and uwrap request in the envelope.
+   *
+   * @return array Array where first element is http status code and the second one is resource.
+   */
+  public function postWithParams($url, array $params, array $body = null, array $options = array())
+  {
+      return $this->request('POST', $url, $params, $body, $options);
+  }
+
+  /**
    * Perform a POST request
    *
    * @param string $url Url to send the request to.
