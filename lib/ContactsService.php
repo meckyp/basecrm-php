@@ -111,6 +111,30 @@ class ContactsService
   }
 
   /**
+   * Upsert a contact
+   *
+   * post '/contacts/upsert'
+   *
+   * Create a new contact or update an existing, based on a value of a filter or a set of filters.
+   * A contact may represent a single individual or an organization
+   * @param array $params This array's is for filter.
+   * @param array $contact This array's attributes describe the object to be created.
+   * @param array $options Additional request's options.
+   *
+   * @return array The resulting object representing created resource.
+   */
+  public function upsert(array $params, array $contact, array $options = array())
+  {
+      $attributes = array_intersect_key($contact, array_flip(self::$keysToPersist));
+
+      if (isset($attributes['custom_fields']) && empty($attributes['custom_fields'])) unset($attributes['custom_fields']);
+
+      list($code, $upsertContact) = $this->httpClient->postWithParams("/contacts/upsert", $params, $attributes, $options);
+
+      return $upsertContact;
+  }
+
+  /**
    * Delete a contact
    *
    * delete '/contacts/{id}'
