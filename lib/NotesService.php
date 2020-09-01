@@ -12,7 +12,7 @@ namespace BaseCRM;
 class NotesService
 {
   // @var array Allowed attribute names.
-  protected static $keysToPersist = ['content', 'resource_id', 'resource_type'];
+  protected static $keysToPersist = ['content', 'resource_id', 'resource_type', 'tags', 'is_important', 'type'];
 
   protected $httpClient;
 
