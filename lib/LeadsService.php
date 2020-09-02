@@ -12,7 +12,7 @@ namespace BaseCRM;
 class LeadsService
 {
   // @var array Allowed attribute names.
-  protected static $keysToPersist = ['address', 'custom_fields', 'description', 'email', 'facebook', 'fax', 'first_name', 'industry', 'last_name', 'linkedin', 'mobile', 'organization_name', 'owner_id', 'phone', 'skype', 'source_id', 'status', 'tags', 'title', 'twitter', 'website'];
+  protected static $keysToPersist = ['address', 'custom_fields', 'description', 'email', 'facebook', 'fax', 'first_name', 'industry', 'last_name', 'linkedin', 'mobile', 'organization_name', 'owner_id', 'phone', 'skype', 'source_id', 'status', 'tags', 'title', 'twitter', 'website', 'unqualified_reason_id'];
 
   protected $httpClient;
 
